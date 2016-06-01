@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+    <title>Storybook Jukebox</title>
+    <meta content="">
+    <link rel="stylesheet" type="text/css" href="https://yegor256.github.io/tacit/tacit.min.css"/>
+    <style type="text/css">
+      .yale {
+        color: #C2BBB8;
+      }
+    </style>
+    <script src="player.js" type="text/javascript"></script>
+    <script src="json-no.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      window.current_track = 0;
+      window.switched = false;
+    </script>
+  </head>
+  <body onload="load_player(window.current_track)">
+    <h1>Storybook Jukebox</h1>
+
+    <div id="player_container">
+      <div id="title_div">&nbsp;</div>
+      <div id="audio_item">&nbsp;</div>
+      <div id="image_div">&nbsp;</div>
+      <div id="story_text" onclick="switch_lang()">&nbsp;</div>
+      <div id="playlist">&nbsp;</div>
+    </div>
+
+  </body>
+</html>
