@@ -13,7 +13,7 @@ Story audio plays automatically. Click anywhere on the text to toggle translatio
 There are a number of shortcut keys available to access the media controls:
 
 * **Play/Pause**: _Shortcut modifier key + p_
-* **Stop**: _Shortcut modifier key + s_
+* **Stop**: _Shortcut modifier key + x_
 * **Previous chapter**: _Shortcut modifier key + h_
 * **Previous story**: _Shortcut modifier key + j_
 * **Next chapter**: _Shortcut modifier key + k_

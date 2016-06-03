@@ -9,10 +9,10 @@ function pad_num(n) {
 }
 
 function load_player(s) {
-  idx = stories[s].n;
-  text = stories[s].t;
-  trans_text = stories[s].b;
-  attribution = stories[s].a;
+  idx = window.stories[s].n;
+  text = window.stories[s].t;
+  trans_text = window.stories[s].b;
+  attribution = window.stories[s].a;
 
   window.chapters = text.split("@");
   window.trans_chapters = trans_text.split("@");
@@ -24,7 +24,6 @@ function load_player(s) {
   p = [idx, title, page_number, chapter_text, attribution]
   window.p = p;
   create_player(p);
-
 }
 
 function create_player(p) {
@@ -36,8 +35,7 @@ function create_player(p) {
 
   image = '<img src="https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/' + idx + '/' + page_number + '.jpg" />\n\n';
 
-  lang = "no";
-  title_format = title.toLowerCase().replace(/\s/g, "-").replace(/[\?\!,\(\)']/g, "");
+  title_format = title.toLowerCase().replace(/\s/g, "-").replace(/[\?\!,\(\)'؟]/g, "");
   mp3 = 'https://raw.githubusercontent.com/global-asp/gasp-audio/master/' + lang + '/' + idx + '_' + title_format + '/mp3/' + page_number + '.mp3';
   controls = "        <audio autoplay id='audio' onended='play_next_chapter()'><source src='" + mp3 + "' type='audio/mpeg'></audio>";
 
@@ -99,7 +97,7 @@ function play_previous_chapter() {
 
 function play_next() {
   s = window.current_track + 1;
-  if (s > stories.length - 1) {
+  if (s > window.stories.length - 1) {
     s = 0;
   }
   window.current_track = s;
@@ -109,7 +107,7 @@ function play_next() {
 function play_previous() {
   s = window.current_track - 1;
   if (s < 0) {
-    s = stories.length - 1;
+    s = window.stories.length - 1;
   }
   window.current_track = s;
   load_player(s);
@@ -156,10 +154,10 @@ function show_lang() {
 }
 
 function play_random() {
-  rand = Math.floor(Math.random() * stories.length + 1);
+  rand = Math.floor(Math.random() * window.stories.length + 1);
 
   s = rand;
-  if (s > stories.length - 1) {
+  if (s > window.stories.length - 1) {
     s = 0;
   }
   window.current_track = s;
@@ -186,4 +184,30 @@ function play_pause() {
 function audio_stop() {
   window.audio.pause();
   window.audio.currentTime = 0;
+}
+
+function load_page() {
+  window.current_track = 0;
+  window.switched = false;
+  quick_api();
+}
+
+function quick_api() {
+  var geturl = location.href;
+  lang = "no";
+  if (/\?/.test(geturl) == true) {
+    lang = /\?([a-z]+)/.exec(geturl)[1];
+  }
+  load_lang(lang);
+}
+
+function load_lang() {
+  wl = 'js/json-' + lang + '.js';
+  if (fileadded != wl) {
+    var wlsrc = document.createElement('script');
+    wlsrc.setAttribute("type","text/javascript");
+    wlsrc.setAttribute("src", wl);
+    document.getElementsByTagName("head")[0].appendChild(wlsrc);
+    fileadded = wl;
+  }
 }
