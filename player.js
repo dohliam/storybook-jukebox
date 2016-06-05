@@ -17,7 +17,7 @@ function load_player(s) {
   window.chapters = text.split("@");
   window.trans_chapters = trans_text.split("@");
 
-  title = window.chapters[0];
+  title = window.chapters[0].replace(/#.*/, "");
 
   chapter_text = "<center><strong>" + title + "</strong></center>";
   page_number = pad_num(1);
@@ -125,7 +125,7 @@ function switch_lang() {
 
 function show_lang() {
   s = window.current_track;
-  title = window.chapters[0];
+  title = window.chapters[0].replace(/#.*/, "");
 
   story_text = document.getElementById("story_text");
   title_div = document.getElementById("title_div");
@@ -147,7 +147,7 @@ function show_lang() {
     title_div.innerHTML = header;
     story_text.innerHTML = trans_chapters[n];
   } else {
-    header = "        <h2>" + title + "</h2>\n\n";
+    header = "        <h2>" + title.replace(/#/, "<br>") + "</h2>\n\n";
     title_div.innerHTML = header;
     story_text.innerHTML = chapter_text;
   }
