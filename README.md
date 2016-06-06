@@ -18,7 +18,13 @@ There are a number of shortcut keys available to access the media controls:
 * **Previous story**: _Shortcut modifier key + j_
 * **Next chapter**: _Shortcut modifier key + k_
 * **Next story**: _Shortcut modifier key + l_
+* **Show help**: _Shortcut modifier key + ?_
 
 ## License
 
 MIT.
+
+* [Tacit CSS](https://github.com/yegor256/tacit/) by Yegor Bugayenko is licensed under MIT.
+* Media buttons are courtesy of [Material Design Icons](https://github.com/google/material-design-icons) (CC-BY).
+* Pure CSS modals are made possible by [drublic](https://github.com/drublic)'s [css-modal](https://github.com/drublic/css-modal) project.
+

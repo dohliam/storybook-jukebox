@@ -215,7 +215,7 @@ function load_lang() {
 function show_attribution() {
   audio_stop();
   attribution = window.p[4];
-// reader, author, illustrator, translator, license
+
   title = window.p[1];
   reader = attribution[0];
   text = attribution[1];
@@ -229,6 +229,6 @@ function show_attribution() {
   }
 
   a_div = document.getElementById("attribution");
-  format_attribution = "<h2>" + title + "</h2>\n<p><b>Reader: " + reader + "</b></p>\n<ul>\n<li>Text: " + text + "</li>\n<li>Illustration: " + illustration + "</li>\n<li>Translation: " + translation + "</li>\n<li>License: " + license + "</li></ul>";
+  format_attribution = "<h2>" + title + "</h2>\n<p><b>Read by: " + reader + "</b></p>\n<ul>\n<li>Author: " + text + "</li>\n<li>Illustrator: " + illustration + "</li>\n<li>Translator: " + translation + "</li>\n<li>License: " + license + "</li></ul>";
   a_div.innerHTML = format_attribution;
 }
