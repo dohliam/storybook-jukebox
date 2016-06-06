@@ -35,7 +35,7 @@ function create_player(p) {
 
   image = '<img src="https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/' + idx + '/' + page_number + '.jpg" />\n\n';
 
-  title_format = title.toLowerCase().replace(/\s/g, "-").replace(/[\?\!,\(\)'؟]/g, "");
+  title_format = title.toLowerCase().replace(/\s/g, "-").replace(/[\?\!,\(\)'؟？！]/g, "");
   mp3 = 'https://raw.githubusercontent.com/global-asp/gasp-audio/master/' + lang + '/' + idx + '_' + title_format + '/mp3/' + page_number + '.mp3';
   controls = "        <audio autoplay id='audio' onended='play_next_chapter()'><source src='" + mp3 + "' type='audio/mpeg'></audio>";
 
@@ -210,4 +210,25 @@ function load_lang() {
     document.getElementsByTagName("head")[0].appendChild(wlsrc);
     fileadded = wl;
   }
+}
+
+function show_attribution() {
+  audio_stop();
+  attribution = window.p[4];
+// reader, author, illustrator, translator, license
+  title = window.p[1];
+  reader = attribution[0];
+  text = attribution[1];
+  illustration = attribution[2];
+  translation = attribution[3];
+  license = attribution[4];
+  if (license == "n") {
+    license = "CC-BY-NC";
+  } else {
+    license = "CC-BY";
+  }
+
+  a_div = document.getElementById("attribution");
+  format_attribution = "<h2>" + title + "</h2>\n<p><b>Reader: " + reader + "</b></p>\n<ul>\n<li>Text: " + text + "</li>\n<li>Illustration: " + illustration + "</li>\n<li>Translation: " + translation + "</li>\n<li>License: " + license + "</li></ul>";
+  a_div.innerHTML = format_attribution;
 }

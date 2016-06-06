@@ -5,6 +5,7 @@
     <title>Storybook Jukebox</title>
     <meta content="">
     <link rel="stylesheet" type="text/css" href="https://yegor256.github.io/tacit/tacit.min.css"/>
+    <link rel="stylesheet" type="text/css" href="modal.css" />
     <style type="text/css">
       .grey {
         color: #C2BBB8;
@@ -18,7 +19,7 @@
     </script>
   </head>
   <body onload="window.stories = window['stories_' + lang]; load_player(window.current_track)">
-    <h1>Storybook Jukebox</h1>
+    <h1 class="grey">Storybook Jukebox <a onclick="show_attribution()" href="#modal-about" class="call-modal" title="Clicking this link shows the modal"><button accesskey="?"><img width="50%" src="img/help.svg" title="Show help"></button></a></h1>
 
     <div id="player_container">
       <div id="title_div" onclick="switch_lang()">&nbsp;</div>
@@ -27,6 +28,37 @@
       <div id="story_text" onclick="switch_lang()">&nbsp;</div>
       <div id="playlist">&nbsp;</div>
     </div>
+
+      <section class="modal--show" id="modal-about" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+
+        <div class="modal-inner">
+          <header>
+            <h2 id="modal-label">About</h2>
+          </header>
+
+        <div class="modal-content">
+        <p><div id="attribution"><script type="text/javascript">show_attribution()</script></div>
+        <h2>Storybook Jukebox - A media player for multilingual storybooks</h2>
+        <p>The Storybook Jukebox plays text, images, and audio of translated stories from the Global ASP collection. The stories play automatically, reading through each page in sequence. This is a counterpart to the existing audio slideshows, which are user-controlled and play one page at a time. Unlike the audio slideshows, the Storybook Jukebox requires no user interaction.</p>
+        <p>Story audio plays automatically. Click anywhere on the text to <b>toggle translation</b>. There are also shortcut keys to allow control of playback using the keyboard.</p>
+        <p><a href="https://github.com/dohliam/storybook-jukebox">See project page on GitHub</a>.</p>
+        <h3>Shortcuts</h3>
+        <ul>
+          <li>Play/Pause: Shortcut modifier key + <b>p</b></li>
+          <li>Stop: Shortcut modifier key + <b>x</b></li>
+          <li>Previous chapter: Shortcut modifier key + <b>h</b></li>
+          <li>Previous story: Shortcut modifier key + <b>j</b></li>
+          <li>Next chapter: Shortcut modifier key + <b>k</b></li>
+          <li>Next story: Shortcut modifier key + <b>l</b></li>
+          <li>Show help: Shortcut modifier key + <b>?</b></li>
+        </ul>
+        <h3>License</h3>
+        <p>All of the ASP and Global-ASP stories are <a href="http://creativecommons.org/">Creative Commons-licensed</a>. You can find the open-licensed text of the stories in various languages <a href="https://github.com/global-asp/global-asp">here</a>, and audio files <a href="https://github.com/global-asp/gasp-audio">here</a>.</p>
+          </div>
+        </div>
+
+        <a href="#!" class="modal-close" title="Close this modal" data-dismiss="modal" data-close="Close">&times;</a>
+      </section>
 
   </body>
 </html>
