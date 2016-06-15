@@ -18,14 +18,15 @@
       load_page();
     </script>
   </head>
-  <body onload="window.stories = window['stories_' + lang]; load_player(window.current_track)">
-    <h1 class="grey">Storybook Jukebox <a onclick="show_attribution()" href="#modal-about" class="call-modal" title="Clicking this link shows the modal"><button accesskey="?"><img width="50%" src="img/help.svg" title="Show help"></button></a></h1>
+  <body onload="window.json = 'stories_' + lang; load_player(0, 0)">
+    <h1 class="grey">Storybook Jukebox <a onclick="show_attribution()" href="#modal-about" class="call-modal" title="Clicking this link shows the modal"><button accesskey="?"><img src="img/help.svg" title="Show help"></button></a></h1>
 
     <div id="player_container">
-      <div id="title_div" onclick="switch_lang()">&nbsp;</div>
+      <div id="title_div">&nbsp;</div>
+      <div id="media_controls">&nbsp;</div>
       <div id="audio_item">&nbsp;</div>
       <div id="image_div">&nbsp;</div>
-      <div id="story_text" onclick="switch_lang()">&nbsp;</div>
+      <div id="story_text">&nbsp;</div>
       <div id="playlist">&nbsp;</div>
     </div>
 
