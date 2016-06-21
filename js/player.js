@@ -108,7 +108,7 @@ function play_audio(page, track) {
 }
 
 function format_title(title) {
-  title_format = title.toLowerCase().replace(/\s/g, "-").replace(/[\?\!,\(\)'؟？！]/g, "");
+  title_format = title.toLowerCase().replace(/\s/g, "-").replace(/[\?؟？¿\!！¡,\(\)']/g, "");
   return title_format;
 }
 
